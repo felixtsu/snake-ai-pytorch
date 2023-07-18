@@ -17,6 +17,13 @@ class Agent:
         self.epsilon = 0 # randomness
         self.gamma = 0.9 # discount rate
         self.memory = deque(maxlen=MAX_MEMORY) # popleft()
+        # 此处构建一个模型
+        # 将有11个输入节点 通过 256个隐藏层 转成我们能进行的 3个操作
+        # 对应一共11个输入状态的值分别是
+        # 前方有没有危险,右方有没有危险，左方有没有危险 3个
+        # 正在往左，正在往右，正在往上，正在往下 4个
+        # 食物在左边，食物在右边，食物在上方，食物在下方 4个
+        # 3个输出层 （对应左转、右转和直行）
         self.model = Linear_QNet(11, 256, 3)
         self.trainer = QTrainer(self.model, lr=LR, gamma=self.gamma)
 
