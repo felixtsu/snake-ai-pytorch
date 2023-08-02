@@ -35,6 +35,13 @@ class SnakeGameAI:
         self.display = pygame.display.set_mode((self.w, self.h))
         pygame.display.set_caption('Snake')
         self.clock = pygame.time.Clock()
+
+        self.wall = []
+        # for i in range(15):
+        #     x = random.randint(0, (self.w-BLOCK_SIZE )//BLOCK_SIZE )*BLOCK_SIZE
+        #     y = random.randint(0, (self.h-BLOCK_SIZE )//BLOCK_SIZE )*BLOCK_SIZE
+        #     self.wall.append(Point(x, y))
+
         self.reset()
 
 
@@ -74,7 +81,9 @@ class SnakeGameAI:
         self.snake.insert(0, self.head)
         
         # 3. check if game over
+        # TODO reward 就是奖励，我们需要设定每一步操作给蛇奖励还是惩罚
         reward = 0
+
         game_over = False
         if self.is_collision() or self.frame_iteration > 100*len(self.snake):
             game_over = True
@@ -105,12 +114,17 @@ class SnakeGameAI:
         # hits itself
         if pt in self.snake[1:]:
             return True
+        if pt in self.wall:
+            return True
 
         return False
 
 
     def _update_ui(self):
-        self.display.fill(BLACK)
+        self.display.fill(WHITE)
+
+        for pt in self.wall:
+            pygame.draw.rect(self.display, BLACK, pygame.Rect(pt.x, pt.y, BLOCK_SIZE, BLOCK_SIZE))
 
         for pt in self.snake:
             pygame.draw.rect(self.display, BLUE1, pygame.Rect(pt.x, pt.y, BLOCK_SIZE, BLOCK_SIZE))

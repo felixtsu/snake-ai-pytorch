@@ -97,7 +97,6 @@ class SnakeGame:
             game_over = True
             return game_over, self.score
 
-        
         ## TODO 这里需要处理这一轮有没有吃到食物的情况
         # 1. 怎么判断有没有吃到食物呢？
         # 2. 吃到食物要做什么？
@@ -127,7 +126,6 @@ class SnakeGame:
         # self.head 可以拿到头的点
         # self.snake 可以拿到整条蛇的点的数组 （从头到尾）
         # 想想怎么用这些来判定自己有没有撞到自己
-
 
         # 3. 如果我们想要好玩一点，比如在地图中央也有迷宫一样的墙，那么可以在这里添加
         # TODO
