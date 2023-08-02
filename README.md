@@ -1,10 +1,9 @@
-# Teach AI To Play Snake! Reinforcement Learning With PyTorch and Pygame
+# 利用AI教电脑玩贪吃蛇
 
-In this Python Reinforcement Learning Tutorial series we teach an AI to play Snake! We build everything from scratch using Pygame and PyTorch. The tutorial consists of 4 parts:
+学习如何通过强化学习训练一个会玩贪吃蛇的模型
 
-You can find all tutorials on my channel: [Playlist](https://www.youtube.com/playlist?list=PLqnslRFeH2UrDh7vUmJ60YrmWd64mTTKV)
 
-- Part 1: I'll show you the project and teach you some basics about Reinforcement Learning and Deep Q Learning.
-- Part 2: Learn how to setup the environment and implement the Snake game.
-- Part 3: Implement the agent that controls the game.
-- Part 4: Implement the neural network to predict the moves and train it.
+- 1: 试着补全snake_human_game.py中的TODO，实现一个可以通过键盘的上下左右控制的贪吃蛇游戏。过程中学会贪吃蛇的游戏规则以及游戏引擎的实现
+- 2: 运行一下agent.py，看一下当前AI的表现。阅读agent.py game.py，梳理当前的模型，思考蛇表现的原因；
+- 3: 考虑如何调整模型让AI取得更优秀的表现（告诉它什么信息、对行为进行奖惩）
+- 4: 对游戏进行扩展调整（增强地图、引入其他蛇）
